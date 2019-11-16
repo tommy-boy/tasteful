@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { useTasteful } from "../../App";
 import { withStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 
 import Header from "../../components/Header/Header";
+import Table from "../../components/Table/Table";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import registrationStyles from "./styles";
 
@@ -15,6 +15,10 @@ const Registration = props => {
       <RegistrationForm />
     </div>
   );
+};
+
+Registration.propTypes = {
+  title: PropTypes.string
 };
 
 export default withStyles(registrationStyles)(Registration);

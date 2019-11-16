@@ -2,7 +2,8 @@ const textFieldStyles = {
   field: {
     display: "flex",
     width: "100%",
-    height: 28,
+    boxSizing: "border-box",
+    height: 42,
     margin: 8,
     padding: 8,
     border: "none",

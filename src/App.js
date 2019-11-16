@@ -4,16 +4,16 @@ import { createStore } from "./Store/Store";
 import Registration from "./views/Registration/Registration";
 import "./App.css";
 
-const TastefulStore = createStore([]);
+const RatingsStore = createStore([]);
 
-export const useTasteful = TastefulStore.useStore;
+export const useRatings = RatingsStore.useStore;
 
 function App() {
   return (
     <Router>
-      <TastefulStore.Provider>
+      <RatingsStore.Provider>
         <Registration />
-      </TastefulStore.Provider>
+      </RatingsStore.Provider>
     </Router>
   );
 }

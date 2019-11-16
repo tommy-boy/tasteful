@@ -6,10 +6,14 @@ const tableStyles = {
     lineHeight: 25
   },
   th: {
+    padding: "12px 0",
+    textAlign: "center",
     backgroundColor: "#eee",
     textAlign: "center"
   },
   td: {
+    border: "1px solid #ddd",
+    padding: 8,
     textAlign: "center",
     "&:firstChild": {
       textAlign: "left"

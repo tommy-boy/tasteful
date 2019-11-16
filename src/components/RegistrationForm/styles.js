@@ -9,11 +9,13 @@ const registrationFormStyles = {
   },
   boxOne: {
     gridColumn: 1,
-    gridRow: 1
+    gridRow: 1,
+    marginRight: 22
   },
   boxTwo: {
     gridColumn: 2,
-    gridRow: "1 / 3"
+    gridRow: "1 / 3",
+    marginRight: 22
   },
   boxThree: {
     gridColumn: 3,
