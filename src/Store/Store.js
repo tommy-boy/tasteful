@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import produce from "immer";
 
 const initialState = [];
@@ -10,20 +10,20 @@ const invariantUpdaterFn = () => {
 };
 
 export function createStore(initialState) {
-  const StateContext = React.createContext(initialState);
-  const UpdateContext = React.createContext(invariantUpdaterFn);
+  const StateContext = createContext(initialState);
+  const UpdateContext = createContext(invariantUpdaterFn);
 
   function StoreProvider({ children }) {
-    const [state, updateState] = React.useReducer(produce, initialState);
+    const [state, updater] = useReducer(produce, initialState);
     return (
-      <UpdateContext.Provider value={updateState}>
+      <UpdateContext.Provider value={updater}>
         <StateContext.Provider value={state}>{children}</StateContext.Provider>
       </UpdateContext.Provider>
     );
   }
 
   function useStore() {
-    return [React.useContext(StateContext), React.useContext(UpdateContext)];
+    return [useContext(StateContext), useContext(UpdateContext)];
   }
 
   return { Provider: StoreProvider, useStore };

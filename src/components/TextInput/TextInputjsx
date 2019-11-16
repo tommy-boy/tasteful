@@ -1,0 +1,40 @@
+function TextInput(props) {
+
+  const formContext = useContext(FormContext);
+
+  useEffect(() => {
+    console.log('TextInput useEffect...');
+    formContext.setInputInitialState(
+      props.name,
+      props.label,
+      props.type,
+      props.initialValue,
+      props.min,
+      props.max,
+      props.required
+    );
+  },[]);
+
+  return(
+      <input
+        type={props.type}
+        id={props.name}
+        name={props.name}
+        placeholder={props.placeholder}
+        value={([props.name] in formContext.inputs) ?
+                  formContext.inputs[props.name].value
+                : props.initialValue || ''}
+        onChange={formContext.onChange}
+        onFocus={formContext.onFocus}
+        onBlur={formContext.onBlur}
+      >
+      </input>
+      </div>
+      {([props.name] in formContext.inputs) ?
+          formContext.inputs[props.name].invalidMsg && <div><span> {formContext.inputs[props.name].invalidMsg}</span></div>
+        : null}
+    </div>
+  );
+
+...
+}

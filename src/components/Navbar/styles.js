@@ -5,13 +5,20 @@ const navBarStyles = {
   },
   navitems: {
     display: "inline-flex",
-    marginRight: 12,
-    color: "#e1000",
+    marginRight: 16,
+    color: "white",
     listStyle: "none",
     textDecoration: "none",
+    "&:hover": {
+      color: "blue"
+    },
     "&:last-child": {
-      marginLeft: 32
+      marginLeft: 22,
+      marginRight: 0
     }
+  },
+  navicon: {
+    marginRight: 4
   }
 };
 
