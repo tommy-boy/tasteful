@@ -1,4 +1,5 @@
-import FormContext from "./Parts/FormContext";
+import React, { useState } from "react";
+//import FormContext from "./Parts/FormContext";
 
 function BasicForm(props) {
   const [inputs, setInputs] = useState({});
@@ -53,17 +54,32 @@ function BasicForm(props) {
     });
   }
 
+  const onSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    for (var pair of data) {
+      console.log(pair[0] + ": " + pair[1]);
+    }
+    fetch("/api/form-submit-url", {
+      method: "POST",
+      body: data
+    });
+  };
+
   return (
-    <FormContext.Provider
-      value={{
-        onChange: onChange,
-        inputs: inputs,
-        setInputInitialState: setInputInitialState
-      }}
-    >
-      <form onSubmit={onSubmit} method="POST" noValidate>
-        {props.children}
-      </form>
-    </FormContext.Provider>
+    // <FormContext.Provider
+    //   value={{
+    //     onChange: onChange,
+    //     inputs: inputs,
+    //     setInputInitialState: setInputInitialState
+    //   }}
+    // >
+    <form onSubmit={onSubmit} method="POST" noValidate>
+      {props.children}
+    </form>
+    // </FormContext.Provider>
   );
 }
+
+export default BasicForm;

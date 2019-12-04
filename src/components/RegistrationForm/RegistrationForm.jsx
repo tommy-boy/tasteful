@@ -12,19 +12,33 @@ import registrationFormStyles from "./styles";
 
 const RegistrationForm = props => {
   const { classes } = props;
-  //const [ratings, updateRatings] = useRatings({ hits: [] }, initialState);
+  //const [ratings, updateRatings] = useRatings({ feed: [] }, initialState);
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("react");
 
   //const [reset, setReset] = useInput("");
 
+  // useEffect(() => {
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/users")
+  //     .then(result => setData(result.data));
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${search}`
+        "https://yummly2.p.rapidapi.com/feeds/search?q=babyback%20ribs&start=0&maxResult=18",
+        {
+          headers: {
+            "x-rapidapi-host": "yummly2.p.rapidapi.com",
+            "x-rapidapi-key":
+              "3559f0bd4emsh3f2ed9198336768p15f47ajsnaa7ae631bb03"
+          }
+        }
       );
       setData(results.data);
+      console.log("hey: ", results.data);
     };
     fetchData();
   }, [search]);
@@ -74,7 +88,7 @@ const RegistrationForm = props => {
           Search
         </button>
         <ul className={classes.list}>
-          {data.hits.map(item => (
+          {data.feed.map(item => (
             <li key={item.objectID}>
               <a href={item.url}>{item.title}</a>
             </li>

@@ -1,11 +1,22 @@
-import IndexLayout from "../layouts/IndexLayout/IndexLayout";
-//import SettingsLayout from '../layouts/SettingsLayout/SettingsLayout';
+import Qu from "../views/Qu/Qu";
+import Account from "../views/Account/Account";
+import Login from "../views/Login/Login";
 
 const indexRoutes = [
   {
     path: "/",
-    name: "Index",
-    component: IndexLayout
+    name: "Qu",
+    component: Qu
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: Account
   }
 ];
 
