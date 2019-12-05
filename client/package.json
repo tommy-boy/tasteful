@@ -2,6 +2,7 @@
   "name": "tasteful",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/styles": "^4.6.0",
@@ -34,6 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:8080/"
+  }
 }

@@ -9,8 +9,8 @@ const indexRoutes = [
     component: Qu
   },
   {
-    path: "/login",
-    name: "Login",
+    path: "/signin",
+    name: "SignIn",
     component: Login
   },
   {
