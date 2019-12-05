@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 import { IconContext } from "react-icons";
 import {
+  MdHome,
   MdInfoOutline,
   MdChatBubbleOutline,
   MdPersonOutline
@@ -15,7 +16,21 @@ const Navbar = props => {
   //const auth = useAuth();
   return (
     <Fragment>
-      <nav className={classes.navbar}>
+      <nav className={classes.navbarLeft}>
+        <IconContext.Provider
+          value={{
+            color: "white",
+            size: "24px",
+            style: { verticalAlign: "middle", marginRight: "4px" }
+          }}
+        >
+          <Link className={classes.navitemFirst} to="/">
+            <MdHome />
+            Home
+          </Link>
+        </IconContext.Provider>
+      </nav>
+      <nav className={classes.navbarRight}>
         <IconContext.Provider
           value={{
             color: "white",
